@@ -1,4 +1,18 @@
 RoundfileApp::Application.routes.draw do
+  resources :sections
+  resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
+  
+  #get "sections/new"
+  #get "pages/home"
+	root :to => 'pages#home'
+	match '/newsection',  :to => 'sections#new'
+	match '/mysections',  :to => 'sections#mysections'
+	match '/signup',  :to => 'users#new'
+	match '/signin',  :to => 'sessions#new'
+	match '/signout', :to => 'sessions#destroy'
+	
+	
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

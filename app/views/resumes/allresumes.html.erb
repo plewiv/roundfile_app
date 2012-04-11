@@ -1,0 +1,16 @@
+<h1><%= @title %></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>User ID</th>
+  </tr>
+
+<% @resume.each do |resume| %>
+  <tr>
+    <td><%= resume.name %></td>
+    <td><%= resume.userid %></td>
+  </tr>
+<% end %>
+</table>
+

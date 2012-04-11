@@ -1,15 +1,3 @@
-# == Schema Information
-#
-# Table name: sections
-#
-#  id         :integer         not null, primary key
-#  type       :string(255)
-#  content    :string(255)
-#  userid     :integer
-#  created_at :datetime
-#  updated_at :datetime
-#
-
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
@@ -21,3 +9,16 @@ two:
   type: MyString
   content: MyString
   userid: 
+
+# == Schema Information
+#
+# Table name: sections
+#
+#  id          :integer         not null, primary key
+#  typesection :string(255)
+#  content     :string(255)
+#  userid      :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

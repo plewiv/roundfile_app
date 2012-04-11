@@ -1,15 +1,3 @@
-# == Schema Information
-#
-# Table name: sections
-#
-#  id         :integer         not null, primary key
-#  type       :string(255)
-#  content    :string(255)
-#  userid     :integer
-#  created_at :datetime
-#  updated_at :datetime
-#
-
 require 'test_helper'
 
 class SectionTest < ActiveSupport::TestCase
@@ -18,3 +6,16 @@ class SectionTest < ActiveSupport::TestCase
     assert true
   end
 end
+
+# == Schema Information
+#
+# Table name: sections
+#
+#  id          :integer         not null, primary key
+#  typesection :string(255)
+#  content     :string(255)
+#  userid      :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

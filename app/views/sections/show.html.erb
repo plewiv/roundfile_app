@@ -1,3 +1,9 @@
 <h1><%= @title %></h1>
 <p>Find me in app/views/sections/show.html.erb</p>
-<%= @section.typesection %>, <%= @section.content %>, <%= @section.userid %>
+<%= @section.typesection %>, <%= @section.content %>, <%= @section.userid %> 
+
+<% if current_user.id == @section.userid %>
+
+ | <%= link_to 'Edit', edit_section_path(@section) %> | <%= link_to 'Destroy', @section, :confirm => 'Are you sure?', :method => :delete %>
+ 
+<% end %>

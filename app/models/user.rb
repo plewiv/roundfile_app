@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
 	
 	has_many :sections
 	has_many :resumes
+	has_many :comments
+	has_many :ratings
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

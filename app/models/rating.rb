@@ -1,0 +1,25 @@
+class Rating < ActiveRecord::Base
+	attr_accessible :resumeid, :userid, :rating_score, :rate_time
+	
+	belongs_to :resume
+	belongs_to :user
+	
+	validates :resumeid, :presence => true
+	validates :userid, :presence => true
+	validates :rating_score, :presence => true
+	validates :rate_time, :presence => true
+end
+
+# == Schema Information
+#
+# Table name: ratings
+#
+#  id           :integer         not null, primary key
+#  resumeid     :integer
+#  userid       :integer
+#  rating_score :integer
+#  rate_time    :datetime
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+

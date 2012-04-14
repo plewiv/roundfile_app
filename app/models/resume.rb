@@ -3,6 +3,9 @@ class Resume < ActiveRecord::Base
 attr_accessible :name, :userid
 	
 	belongs_to :user
+	has_many :section
+	has_many :resumesection
+	
 	
 	validates :name, :presence => true
 	validates :userid, :presence => true

@@ -3,20 +3,17 @@
 
 <%= form_for(@resume) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.select :typesection, [['Header'],['Education'],['Skills']] %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_field :content %>
-  </div>
-  
-  <div class="field">
+    <div class="field">
+		<%= f.label "Name your Resume" %><br />
+		<%= f.text_field :name %>
+    </div>
+	<div class="field">
 	<%= f.hidden_field :userid, :value => current_user.id %>
 	</div>
-  
-  <div class="actions">
-    <%= f.submit "Create Section", :disable_with => "Submitting..." %>
-  </div>
-<% end %>
+	<div class="actions">
+		<%= f.submit "Make section selections...", :disable_with => "Submitting..." %>
+		</div>
+		<% end %>
+	
+	
+

@@ -1,8 +1,14 @@
 RoundfileApp::Application.routes.draw do
-  get "resumes/new"
+
+
+  get "ratings/new"
+
+  get "comments/new"
 
   resources :sections
   resources :users
+  resources :resumes
+  resources :resumesections
   resources :sessions, :only => [:new, :create, :destroy]
   
   #get "sections/new"
@@ -10,12 +16,16 @@ RoundfileApp::Application.routes.draw do
 	root :to => 'pages#home'
 	match '/newsection',  :to => 'sections#new'
 	match '/mysections',  :to => 'sections#mysections'
-	#match '/newresume',  :to => 'resumes#new'
-	
+	match '/newresume',  :to => 'resumes#new'
+
+	match '/newresume/:id' => 'resumesections#new'
+	match '/newresumelist/:id' => 'resumesections#list'
 	match '/myresumes',  :to => 'resumes#myresumes'
 	match '/signup',  :to => 'users#new'
 	match '/signin',  :to => 'sessions#new'
 	match '/signout', :to => 'sessions#destroy'
+	match '/newcomment',  :to => 'comments#new'
+	match '/newrating',  :to => 'ratings#new'
 	
 	
   # The priority is based upon order of creation:

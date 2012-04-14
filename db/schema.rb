@@ -11,11 +11,45 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411050146) do
+ActiveRecord::Schema.define(:version => 20120413183359) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "resumeid"
+    t.integer  "userid"
+    t.string   "comment"
+    t.datetime "comment_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "resumeid"
+    t.integer  "userid"
+    t.integer  "rating_score"
+    t.datetime "rate_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "resumes", :force => true do |t|
     t.string   "name"
     t.integer  "userid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resumesection", :force => true do |t|
+    t.integer  "resumeid"
+    t.integer  "sectionid"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resumesections", :force => true do |t|
+    t.integer  "resumeid"
+    t.integer  "sectionid"
+    t.integer  "order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

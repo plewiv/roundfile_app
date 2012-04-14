@@ -6,10 +6,20 @@ class ResumesController < ApplicationController
   end
   
   def new
+    @title = "New Resume"
+	@resume = Resume.new
   end
   
-  
-  
+  def create	
+    @resume = current_user.resumes.build(params[:resume])
+    if @resume.save
+      flash[:success] = "Resume created!"
+      redirect_to "/newresume/#{@resume.id}"
+	else
+      @title = "Create Resume"
+      render 'new'
+    end
+  end
   
   def allresumes
 	@title = "All Resumes"

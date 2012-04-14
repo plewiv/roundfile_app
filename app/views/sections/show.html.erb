@@ -1,6 +1,6 @@
 <h1><%= @title %></h1>
 <p>Find me in app/views/sections/show.html.erb</p>
-<%= @section.typesection %>, <%= @section.content %>, <%= @section.userid %> 
+ID: <%= @section.id %> | Type: <%= @section.typesection %> | Content: <%= @section.content %> | User ID: <%= @section.userid %> 
 
 <% if current_user.id == @section.userid %>
 

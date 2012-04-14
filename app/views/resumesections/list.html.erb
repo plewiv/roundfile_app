@@ -1,0 +1,24 @@
+<h1><%= @title %></h1>
+
+<table>
+  <tr>
+    <th>Resume ID</th>
+    <th>Section ID</th>
+    <th>ID</th>
+	<th></th>
+	<th></th>
+  </tr>
+
+<% @resumesection.each do |resumesection| %>
+  <tr>
+    <td><%= resumesection.resumeid %></td>
+    <td><%= resumesection.sectionid %></td>
+    <td><%= resumesection.id %></td>
+	
+
+ <td> <%= link_to 'Destroy', resumesection, :confirm => 'Are you sure?', :method => :delete %></td>
+ 
+  </tr>
+<% end %>
+</table>
+

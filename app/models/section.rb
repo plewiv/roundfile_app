@@ -2,6 +2,9 @@ class Section < ActiveRecord::Base
 	attr_accessible :typesection, :content, :userid
 	
 	belongs_to :user
+	belongs_to :resume
+	#belongs_to :resumesection
+	has_many :resumesection
 	
 	validates :typesection, :presence => true
 	validates :content, :presence => true

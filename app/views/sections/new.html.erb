@@ -3,12 +3,16 @@
 <%= form_for(@section) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
-    <%= f.label :typesection %><br />
-    <%= f.select :typesection, [['Contact'],['Objective'],['Qualifications'],['Education'],['Skills'],['Employment History'],['List of References'],['Other']] %>
+    <%= f.label "Type of Section" %><br />
+    <%= f.select :typesection, [['Contact'],['Objective'],['Qualifications'],['Education'],['Skills'],['Employment History'],['List of References'],['Other']], :prompt => " " %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :content %><br />
-    <%= f.text_field :content %>
+    <%= f.text_area :content %>
   </div>
   
   <div class="field">

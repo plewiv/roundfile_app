@@ -2,12 +2,12 @@ class Rating < ActiveRecord::Base
 	attr_accessible :resumeid, :userid, :rating_score, :rate_time
 	
 	belongs_to :resume
-	belongs_to :user
+	belongs_to :user, :class_name => 'User', :foreign_key => 'userid'
 	
 	validates :resumeid, :presence => true
 	validates :userid, :presence => true
 	validates :rating_score, :presence => true
-	validates :rate_time, :presence => true
+	#validates :rate_time, :presence => true
 end
 
 # == Schema Information

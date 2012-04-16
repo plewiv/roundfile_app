@@ -1,9 +1,17 @@
+<%= javascript_include_tag :defaults %>
 <h1><%= @title %></h1>
-<p>Find me in app/views/sections/show.html.erb</p>
-ID: <%= @section.id %> | Type: <%= @section.typesection %> | Content: <%= @section.content %> | User ID: <%= @section.userid %> 
+
+Type: <%= @section.typesection %><br />
+User ID: <%= @section.userid %> <br />
+Title: <%= @section.title %><br />
+
 
 <% if current_user.id == @section.userid %>
 
- | <%= link_to 'Edit', edit_section_path(@section) %> | <%= link_to 'Destroy', @section, :confirm => 'Are you sure?', :method => :delete %>
+<%= link_to 'Edit', edit_section_path(@section) %> | <%= link_to 'Destroy', @section, :confirm => 'Are you sure?', :method => :delete %>
  
-<% end %>
+<% end %><br /><br />
+
+Content: <br />
+<%= raw @section.content %>
+

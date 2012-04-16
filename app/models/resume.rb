@@ -2,7 +2,7 @@ class Resume < ActiveRecord::Base
 
 attr_accessible :name, :userid
 	
-	belongs_to :user
+	belongs_to :user, :class_name => 'User', :foreign_key => 'userid'
 	has_many :section
 	has_many :resumesection
 	

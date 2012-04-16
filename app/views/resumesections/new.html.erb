@@ -6,13 +6,14 @@
 		<th></th><th>Choose Section</th><th>Order #</th><th></th>
 	</tr>
 	
-
+	
+	<% if !@myContact.blank? %>
 	<tr>
 		<%= form_for(@resumesection) do |g| %>
 		<%= render 'shared/error_messages', :object => g.object %>
 		<td>Header</td>
-		<td><div class="field"><%= g.collection_select :sectionid, @myContact, :id, :content, :prompt => " ", :style => "width:800px;" %></div></td>
-		<td><div class="field"><%= g.text_field :order %></div></td>
+		<td><div class="field"><%= g.collection_select :sectionid, @myContact, :id, :title, :prompt => " ", :style => "width:800px;" %></div></td>
+		<td><div class="field"><%= g.text_field :orderNum %></div></td>
 		<td><div class="actions">
 		<%= g.submit "Add", :disable_with => "Submitted" %></div></td>
 			<div class="field">
@@ -20,13 +21,16 @@
 			</div>
 		<% end %>
 	</tr>
-
+	<% end %>
+	
+	
+	<% if !@myObjective.blank? %>
 	<tr>
 		<%= form_for(@resumesection) do |g| %>
 		<%= render 'shared/error_messages', :object => g.object %>
 		<td>Objective</td>
-		<td><div class="field"><%= g.collection_select :sectionid, @myObjective, :id, :content, :prompt => " " %></div></td>
-		<td><div class="field"><%= g.text_field :order %></div></td>
+		<td><div class="field"><%= g.collection_select :sectionid, @myObjective, :id, :title, :prompt => " " %></div></td>
+		<td><div class="field"><%= g.text_field :orderNum %></div></td>
 		<td><div class="actions">
 		<%= g.submit "Add", :disable_with => "Submitted" %></div></td>
 			<div class="field">
@@ -34,15 +38,16 @@
 			</div>
 		<% end %>
 	</tr>
+	<% end %>
 	
 	
-	
+	<% if !@myQualifications.blank? %>
 	<tr>
 		<%= form_for(@resumesection) do |g| %>
 		<%= render 'shared/error_messages', :object => g.object %>
 		<td>Qualifications</td>
-		<td><div class="field"><%= g.collection_select :sectionid, @myQualifications, :id, :content, :prompt => "Select a Qualification" %></div></td>
-		<td><div class="field"><%= g.text_field :order %></div></td>
+		<td><div class="field"><%= g.collection_select :sectionid, @myQualifications, :id, :title, :prompt => " " %></div></td>
+		<td><div class="field"><%= g.text_field :orderNum %></div></td>
 		<td><div class="actions">
 		<%= g.submit "Add", :disable_with => "Submitted" %></div></td>
 			<div class="field">
@@ -50,12 +55,16 @@
 			</div>
 		<% end %>
 	</tr>
+	<% end %>
+	
+	
+	<% if !@myEducation.blank? %>
 	<tr>
 		<%= form_for(@resumesection) do |g| %>
 		<%= render 'shared/error_messages', :object => g.object %>
 		<td>Education</td>
-		<td><div class="field"><%= g.collection_select :sectionid, @myEducation, :id, :content, :prompt => "Select an Education" %></div></td>
-		<td><div class="field"><%= g.text_field :order %></div></td>
+		<td><div class="field"><%= g.collection_select :sectionid, @myEducation, :id, :title, :prompt => " " %></div></td>
+		<td><div class="field"><%= g.text_field :orderNum %></div></td>
 		<td><div class="actions">
 		<%= g.submit "Add", :disable_with => "Submitted" %></div></td>
 			<div class="field">
@@ -63,12 +72,16 @@
 			</div>
 		<% end %>
 	</tr>
+	<% end %>
+	
+	
+	<% if !@mySkills.blank? %>
 	<tr>
 		<%= form_for(@resumesection) do |g| %>
 		<%= render 'shared/error_messages', :object => g.object %>
 		<td>Skills</td>
-		<td><div class="field"><%= g.collection_select :sectionid, @mySkills, :id, :content, :prompt => "Select a Skills" %></div></td>
-		<td><div class="field"><%= g.text_field :order %></div></td>
+		<td><div class="field"><%= g.collection_select :sectionid, @mySkills, :id, :title, :prompt => " " %></div></td>
+		<td><div class="field"><%= g.text_field :orderNum %></div></td>
 		<td><div class="actions">
 		<%= g.submit "Add", :disable_with => "Submitted" %></div></td>
 			<div class="field">
@@ -76,12 +89,16 @@
 			</div>
 		<% end %>
 	</tr>
+	<% end %>
+	
+	
+	<% if !@myEmplHistory.blank? %>
 	<tr>
 		<%= form_for(@resumesection) do |g| %>
 		<%= render 'shared/error_messages', :object => g.object %>
 		<td>Employment History</td>
-		<td><div class="field"><%= g.collection_select :sectionid, @myEmplHistory, :id, :content, :prompt => "Select an EMployment History" %></div></td>
-		<td><div class="field"><%= g.text_field :order %></div></td>
+		<td><div class="field"><%= g.collection_select :sectionid, @myEmplHistory, :id, :title, :prompt => " " %></div></td>
+		<td><div class="field"><%= g.text_field :orderNum %></div></td>
 		<td><div class="actions">
 		<%= g.submit "Add", :disable_with => "Submitted" %></div></td>
 			<div class="field">
@@ -89,12 +106,17 @@
 			</div>
 		<% end %>
 	</tr>
+	<% end %>
+	
+	
+	
+	<% if !@myListRef.blank? %>
 	<tr>
 		<%= form_for(@resumesection) do |g| %>
 		<%= render 'shared/error_messages', :object => g.object %>
 		<td>References</td>
-		<td><div class="field"><%= g.collection_select :sectionid, @myListRef, :id, :content, :prompt => "Select a List of References" %></div></td>
-		<td><div class="field"><%= g.text_field :order %></div></td>
+		<td><div class="field"><%= g.collection_select :sectionid, @myListRef, :id, :title, :prompt => " " %></div></td>
+		<td><div class="field"><%= g.text_field :orderNum %></div></td>
 		<td><div class="actions">
 		<%= g.submit "Add", :disable_with => "Submitted" %></div></td>
 			<div class="field">
@@ -102,12 +124,16 @@
 			</div>
 		<% end %>
 	</tr>
+	<% end %>
+	
+	
+	<% if !@myOther.blank? %>
 	<tr>
 		<%= form_for(@resumesection) do |g| %>
 		<%= render 'shared/error_messages', :object => g.object %>
 		<td>Other</td>
-		<td><div class="field"><%= g.collection_select :sectionid, @myOther, :id, :content, :prompt => "Select an Other" %></div></td>
-		<td><div class="field"><%= g.text_field :order %></div></td>
+		<td><div class="field"><%= g.collection_select :sectionid, @myOther, :id, :title, :prompt => " " %></div></td>
+		<td><div class="field"><%= g.text_field :orderNum %></div></td>
 		<td><div class="actions">
 		<%= g.submit "Add", :disable_with => "Submitted" %></div></td>
 			<div class="field">
@@ -115,9 +141,9 @@
 			</div>
 		<% end %>
 	</tr>
-	
+	<% end %>
 	
 	
 	</table>
 
-  
+  <%= link_to "See Current Sections", "/newresumelist/#{params[:id]}"%>

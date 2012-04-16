@@ -1,24 +1,28 @@
+<%= javascript_include_tag :defaults %>
 <h1><%= @title %></h1>
+
+<%= link_to "Add Another Section", "/newresume/#{params[:id]}" %><br />
 
 <table>
   <tr>
-    <th>Resume ID</th>
-    <th>Section ID</th>
     <th>ID</th>
-	<th></th>
+    <th>Type of Section</th>
+    <th>Section Name</th>
+	<th>Order</th>
 	<th></th>
   </tr>
 
 <% @resumesection.each do |resumesection| %>
   <tr>
-    <td><%= resumesection.resumeid %></td>
-    <td><%= resumesection.sectionid %></td>
     <td><%= resumesection.id %></td>
-	
-
- <td> <%= link_to 'Destroy', resumesection, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= resumesection.section.typesection %></td>
+	<td><%= resumesection.section.title %></td>
+	<td><%= resumesection.orderNum %></td>
+	<td> <%= link_to 'Destroy', resumesection, :confirm => 'Are you sure?', :method => :delete %></td>
  
   </tr>
 <% end %>
 </table>
+<br />
+<%= link_to "Finish Creating Resume", "/viewresume/#{params[:id]}" %>
 

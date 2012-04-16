@@ -8,7 +8,7 @@
 
 <% @resume.each do |resume| %>
   <tr>
-    <td><%= resume.name %></td>
+    <td><%= link_to "#{resume.name}", "/viewresume/#{resume.id}" %></td>
     <td><%= resume.userid %></td>
   </tr>
 <% end %>

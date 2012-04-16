@@ -2,7 +2,14 @@ class ResumesController < ApplicationController
   
   def show
 	@resume = Resume.find(params[:id])
-	@title = "Show Resume"
+	
+	@resumesection = Resumesection.find_all_by_resumeid(params[:id], :order => "orderNum")
+	@comment = Comment.find_all_by_resumeid(params[:id], :order => "created_at")
+	@rating = Rating.find_all_by_resumeid(params[:id], :order => "created_at")
+	
+	#@section = Section.find(:all)
+	
+	@title = "View Resume"
   end
   
   def new
@@ -42,6 +49,19 @@ class ResumesController < ApplicationController
       format.html 
       format.xml  { render :xml => @resume }
     end
+  end
+  
+  def userres
+	@title = "Find Resumes by User"
+	@user = User.find(:all)
+	@resume = Resume.find_all_by_userid(params[:id])
+	if (!params[:id].blank?)
+		@userselected = User.find(params[:id])
+		@title2 = "#{@userselected.name}'s Resumes"
+	else
+		@title2 = " "
+	end
+	
   end
 
   

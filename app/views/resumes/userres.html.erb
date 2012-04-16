@@ -1,0 +1,22 @@
+<h1><%= @title %></h1>
+<div>
+	<% @user.each do |user| %>
+		<%= link_to "#{user.name}", "/userresumes/#{user.id}" %><br />
+	<% end %>
+</div>
+
+<br />
+<div>
+	<% if params[:id].blank? %>
+		BLANK
+	<% end %>
+	
+	<% if !params[:id].blank? %>
+		<h3><%= @title2 %></h3>
+		<% @resume.each do |resume| %>
+		<%= link_to "#{resume.name}", "/viewresume/#{resume.id}" %><br />
+	<% end %>
+	<% end %>
+</div>
+<br />
+

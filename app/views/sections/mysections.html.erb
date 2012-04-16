@@ -1,25 +1,26 @@
+<%= javascript_include_tag :defaults %>
+
 <h1><%= @title %></h1>
+
 
 <table>
   <tr>
     <th>Type</th>
-    <th>Content</th>
-    <th>User ID</th>
-	<th></th>
+    <th>Title</th>
 	<th></th>
   </tr>
 
 <% @section.each do |section| %>
   <tr>
     <td><%= section.typesection %></td>
-    <td><%= section.content %></td>
-    <td><%= section.userid %></td>
+    <td><%= section.title %></td>
 	<% if current_user.id == section.userid %>
-
- <td> | <%= link_to 'Edit', edit_section_path(section) %> | <%= link_to 'Destroy', section, :confirm => 'Are you sure?', :method => :delete %></td>
+		<td><%= link_to 'View', section_url(section) %> | <%= link_to 'Edit', edit_section_path(section) %> | 
+		<%= link_to 'Destroy', section, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end %>
  
-<% end %>
   </tr>
+
 <% end %>
 </table>
 

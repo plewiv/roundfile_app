@@ -7,6 +7,7 @@ class SectionTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: sections
@@ -17,5 +18,6 @@ end
 #  userid      :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  title       :string(255)
 #
 

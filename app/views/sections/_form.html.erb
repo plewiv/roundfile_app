@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :typesection %><br /> 
-    <%= f.text_field :typesection , :readonly=> true %> // Can't edit the Type
+	    <%= f.label "Type of Section" %><br /> 
+		<%= f.text_field :typesection , :readonly=> true %>
   </div>
   <div class="field">
     <%= f.label :content %><br />
-    <%= f.text_field :content %>
+    <%= f.text_area :content %>
   </div>
   <div class="actions">
     <%= f.submit %>

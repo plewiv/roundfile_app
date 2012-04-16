@@ -3,7 +3,7 @@ class SectionsController < ApplicationController
   
   def show
 	@section = Section.find(params[:id])
-	@title = "Show Section"
+	@title = "View Section"
   end
   
   def new
@@ -38,7 +38,7 @@ class SectionsController < ApplicationController
 	
   def mysections
 	@title = "My Sections"
-	@section = Section.find_all_by_userid(current_user.id)
+	@section = Section.find_all_by_userid(current_user.id, :order => "typesection")
 	
 	
 	#code from DEMO APP
@@ -73,15 +73,17 @@ class SectionsController < ApplicationController
   end
   
   def destroy
-	@title = "Delete Section"
-
-    @section = Section.find(params[:id])
-    @section.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(mysections_url) }
-      format.xml  { head :ok }
-    end
+    @section = Section.destroy(params[:id])
+    #@section.destroy
+	
+	#@resumesection = Resumesection.destroy_all_by_sectionid(params[:id])
+	
+	
+	redirect_to :action => 'mysections'
+    #respond_to do |format|
+     # format.html { redirect_to(mysections_url) }
+     # format.xml  { head :ok }
+    #end
   end
 
 end

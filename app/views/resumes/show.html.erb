@@ -1,2 +1,42 @@
 <h1><%= @title %></h1>
-ID: <%= @resume.id %> | Resume Name: <%= @resume.name %> | User ID: <%= @resume.userid %>
+Author: <%= link_to "#{@resume.user.name}", user_path(@resume.userid) %> | 
+<%= link_to "Comment", "/newcomment/#{@resume.id}" %> | 
+<%= link_to "Rate Resume", "/newrating/#{@resume.id}" %> <br />
+Resume Name: <%= @resume.name %>
+<br /><br />
+
+<% @resumesection.each do |resumesection| %>
+
+	<%= resumesection.orderNum %>
+	<%= raw resumesection.section.content %><br />
+<% end %>
+	
+<br />
+<br />
+<bf />
+
+<div>
+	<div>
+		<% if !@comment.blank? %>
+		<h3>Comments</h3>
+		<% @comment.each do |comment| %>
+			<%= comment.comment %><br />
+			Author: <%= link_to "#{comment.user.name}", user_path(comment.user.id) %>
+			<br /><br />
+		<% end %>
+		<% end %>
+	</div>
+		
+	<div>
+		<% if !@rating.blank? %>
+		<h3>Ratings</h3>
+		<% @rating.each do |rating| %>
+			<%= rating.user.name %> : 
+			<%= rating.rating_score %> <br />
+		<% end %>
+		<% end %>
+	</div>
+</div>
+
+
+

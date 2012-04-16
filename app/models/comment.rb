@@ -2,12 +2,12 @@ class Comment < ActiveRecord::Base
 	attr_accessible :resumeid, :userid, :comment, :comment_time
 	
 	belongs_to :resume
-	belongs_to :user
+	belongs_to :user, :class_name => 'User', :foreign_key => 'userid'
 	
 	validates :resumeid, :presence => true
 	validates :userid, :presence => true
 	validates :comment, :presence => true
-	validates :comment_time, :presence => true
+	#validates :comment_time, :presence => true
 end
 
 # == Schema Information

@@ -1,2 +1,21 @@
-<h1>Ratings#new</h1>
-<p>Find me in app/views/ratings/new.html.erb</p>
+<h1><%= @title %></h1>
+
+<%= form_for(@rating) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label "Rating" %><br />
+    <%= f.text_field :rating_score %>
+  </div>
+  
+  <div class="field">
+	<%= f.hidden_field :userid, :value => current_user.id %>
+	</div>
+  <div class="field">
+	<%= f.hidden_field :resumeid, :value => params[:id] %>
+	</div>
+
+  
+  <div class="actions">
+    <%= f.submit "Submit Rating", :disable_with => "Submitting..." %>
+  </div>
+<% end %>

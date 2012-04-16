@@ -1,13 +1,29 @@
 class Resumesection < ActiveRecord::Base
 
-	attr_accessible :resumeid, :sectionid, :order
+	attr_accessible :resumeid, :sectionid, :orderNum
 	
 	belongs_to :resume
-	belongs_to :section
-	has_one :section, :class_name => "Section", :conditions => {:primary => true}
+	belongs_to :section, :class_name => 'Section', :foreign_key => 'sectionid'
+	
 	
 	validates :resumeid, :presence => true
 	validates :sectionid, :presence => true
-	validates :order, :presence => true
+	validates :orderNum, :presence => true
 	
 end
+
+
+
+
+# == Schema Information
+#
+# Table name: resumesections
+#
+#  id         :integer         not null, primary key
+#  resumeid   :integer
+#  sectionid  :integer
+#  orderNum   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120413183359) do
+ActiveRecord::Schema.define(:version => 20120415215305) do
 
   create_table "comments", :force => true do |t|
     t.integer  "resumeid"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20120413183359) do
   create_table "resumesection", :force => true do |t|
     t.integer  "resumeid"
     t.integer  "sectionid"
-    t.integer  "order"
+    t.integer  "orderNum"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20120413183359) do
   create_table "resumesections", :force => true do |t|
     t.integer  "resumeid"
     t.integer  "sectionid"
-    t.integer  "order"
+    t.integer  "orderNum"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20120413183359) do
     t.integer  "userid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   create_table "users", :force => true do |t|

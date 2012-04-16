@@ -8,10 +8,18 @@ class ResumesectionsController < ApplicationController
   
   def new
 	@title = "New Resume"
-	@resumesection = Resumesection.new
-    #@myContact = Section.find_all_by_userid(current_user.id)
-	#@myContact = Section.find_all_by_userid(current_user.id, :conditions => "typesection = 'Header'")
+	if (!params[:message].blank?)
+		flash[:error] = "There was an error adding this section to the resume. Make sure to select a section and enter an order number."
+	end
 	
+	
+	@resumesection = Resumesection.new
+	
+	if (@resumesection.resumeid != nil)
+		params[:id] = @resumesection.resumeid
+	end
+	
+
 	if (Section.find_all_by_userid_and_typesection(current_user.id, 'Contact') != nil)
 		@myContact = Section.find_all_by_userid_and_typesection(current_user.id, 'Contact')
 	end
@@ -57,8 +65,8 @@ class ResumesectionsController < ApplicationController
   
   def list
 	@title = "Resume List"
-	@resumesection = Resumesection.find(:all, :include => :section)
-	#@section = Section.find_all_by_resumeid(params[:id], :include => :resumesection)
+	@resume = Resume.find(params[:id])
+	@resumesection = Resumesection.find_all_by_resumeid(params[:id], :order => "orderNum")
 	
 	#code from DEMO APP
 	respond_to do |format|
@@ -73,12 +81,26 @@ class ResumesectionsController < ApplicationController
 	
     if @resumesection.save
       flash[:success] = "Resume Section created!"
-      redirect_to "/newresumelist/#{params[:id]}"
+      redirect_to "/newresumelist/#{@resumesection.resumeid}"
     else
       @title = "New Resume"
-      render 'new'
+	  redirect_to "/newresume/#{@resumesection.resumeid}/error"
+      #render 'new'
 	end
   end
+  
+  def destroy
+
+    @resumesection = Resumesection.find(params[:id])
+	#@test = @resumesection.resumeid
+    @resumesection.destroy
+
+    respond_to do |format|
+      format.html { redirect_to("/newresumelist/#{@resumesection.resumeid}") }
+      format.xml  { head :ok }
+    end
+  end
+
   
 end
 

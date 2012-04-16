@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
 	attr_accessible :name, :email, :password, :password_confirmation
 	
 	has_many :sections
-	has_many :resumes
-	has_many :comments
-	has_many :ratings
+	has_many :resumes, :class_name => 'Resume'
+	has_many :comments, :class_name => 'Comment'
+	has_many :ratings, :class_name => 'Rating'
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

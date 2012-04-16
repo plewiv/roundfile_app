@@ -1,15 +1,16 @@
 class Section < ActiveRecord::Base
-	attr_accessible :typesection, :content, :userid
+	attr_accessible :typesection, :content, :userid, :title
 	
 	belongs_to :user
-	belongs_to :resume
+	has_many :resumesection, :class_name => 'Resumesection'
 	#belongs_to :resumesection
-	has_many :resumesection
-	
+
 	validates :typesection, :presence => true
 	validates :content, :presence => true
 	validates :userid, :presence => true
+	validates :title, :presence => true
 end
+
 
 # == Schema Information
 #
@@ -21,5 +22,6 @@ end
 #  userid      :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  title       :string(255)
 #
 

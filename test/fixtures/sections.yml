@@ -10,6 +10,7 @@ two:
   content: MyString
   userid: 
 
+
 # == Schema Information
 #
 # Table name: sections
@@ -20,5 +21,6 @@ two:
 #  userid      :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  title       :string(255)
 #
 

@@ -1,3 +1,5 @@
+/* STAR CSS FROM http://www.komodomedia.com/blog/2007/01/css-star-rating-redux/ */
+
 .star-rating,
 .star-rating a:hover,
 .star-rating a:active,
@@ -81,4 +83,7 @@
 	background-image: url(star_small.gif);
 	line-height: 10px;
 	height: 10px;
-}
+}
+
+
+

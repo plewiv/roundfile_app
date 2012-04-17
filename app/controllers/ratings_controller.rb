@@ -1,12 +1,13 @@
 class RatingsController < ApplicationController
   def new
-	@title = "Create a Rating"
-	
-	if (!params[:message].blank?)
+	@title = "Verify Your Rating"
+	@rating = Rating.new
+	if (params[:score] == "error")
 		flash[:error] = "There was an error adding your rating. Please try again."
 	end
 	
-	@rating = Rating.new
+	
+	
   end
   
   def create

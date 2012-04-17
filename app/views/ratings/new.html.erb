@@ -1,18 +1,47 @@
+<%= stylesheet_link_tag 'star_rating', :media => 'screen' %>
 <h1><%= @title %></h1>
-
 <%= form_for(@rating) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
-  <div class="field">
-    <%= f.label "Rating" %><br />
-    <%= f.text_field :rating_score %>
-  </div>
+	<div class="field">
+		<%= f.hidden_field :resumeid, :value => params[:id] %>
+	</div>
+	<div class="field">
+		<%= f.hidden_field :rating_score, :value => params[:score] %>
+	</div>
   
-  <div class="field">
-	<%= f.hidden_field :userid, :value => current_user.id %>
+	<div class="field">
+		<%= f.hidden_field :userid, :value => current_user.id %>
 	</div>
-  <div class="field">
-	<%= f.hidden_field :resumeid, :value => params[:id] %>
-	</div>
+
+
+
+	<ul class="star-rating">
+	
+	<% if params[:score] == "1" %>
+	<li class="current-rating" style="width:20%;">Your Rating was 1/5 Stars.</li>
+	<% elsif params[:score] == "2" %>
+	<li class="current-rating" style="width:40%;">Your Rating was 2/5 Stars.</li>
+	<% elsif params[:score] == "3" %>
+	<li class="current-rating" style="width:60%;">Your Rating was 3/5 Stars.</li>
+	<% elsif params[:score] == "4" %>
+	<li class="current-rating" style="width:80%;">Your Rating was 4/5 Stars.</li>
+	<% elsif params[:score] == "5" %>
+	<li class="current-rating" style="width:100%;">Your Rating was 5/5 Stars.</li>
+	<% else %>
+	<li class="current-rating" style="width:0%;">Your Rating was 0/5 Stars.</li>
+	<% end %>
+
+	<li> <b></b> </li>
+	<li><b></b></li>
+	<li><b></b></li>
+	<li><b></b></li>
+	<li><b></b></li>
+	</ul>
+
+  
+  
+  
+  
 
   
   <div class="actions">

@@ -2,28 +2,57 @@
 <%= stylesheet_link_tag 'star_rating', :media => 'screen' %>
 <h1><%= @title %></h1>
 Author: <%= link_to "#{@resume.user.name}", user_path(@resume.userid) %> | 
-<%= link_to "Comment", "/newcomment/#{@resume.id}" %> | 
-<%= link_to "Rate Resume", "/newrating/#{@resume.id}" %> | 
+<%= link_to "Comment", "/newcomment/#{@resume.id}" %> |  
 <%= link_to 'Edit', edit_resume_path(@resume) %> | 
 <%= link_to 'Delete', @resume, :confirm => 'Are you sure?', :method => :delete %><br />
 Resume Name: <%= @resume.name %>
-<br /><br />
+<br />
 
-<ul class="star-rating">
 
-	<li class="current-rating" style="width:60%;">Currently 3/5 Stars.</li>
+<% if !@usercurrentrating.blank? %>
+Your Rating for this resume: 
+	<ul class="star-rating">
+	
+	<% if @usercurrentrating.rating_score == 1 %>
+	<li class="current-rating" style="width:20%;">Your Rating was 1/5 Stars.</li>
+	<% elsif @usercurrentrating.rating_score == 2 %>
+	<li class="current-rating" style="width:40%;">Your Rating was 2/5 Stars.</li>
+	<% elsif @usercurrentrating.rating_score == 3 %>
+	<li class="current-rating" style="width:60%;">Your Rating was 3/5 Stars.</li>
+	<% elsif @usercurrentrating.rating_score == 4 %>
+	<li class="current-rating" style="width:80%;">Your Rating was 4/5 Stars.</li>
+	<% elsif @usercurrentrating.rating_score == 5 %>
+	<li class="current-rating" style="width:100%;">Your Rating was 5/5 Stars.</li>
+	<% else %>
+	<li class="current-rating" style="width:0%;">Your Rating was 0/5 Stars.</li>
+	<% end %>
 
-	<li><% link_to "newrating/#{@resume.id}/1" %> title="1 star out of 5" class="one-star">1</a></li>
+	<li> <b></b> </li>
+	<li><b></b></li>
+	<li><b></b></li>
+	<li><b></b></li>
+	<li><b></b></li>
+	</ul>
+<% else %>
+Rate Resume: 
+	<ul class="star-rating">
 
-	<li><a href="#" title="2 stars out of 5" class="two-stars">2</a></li>
+	<li class="current-rating" style="width:0%;">Currently 0/5 Stars.</li>
 
-	<li><a href="#" title="3 stars out of 5" class="three-stars">3</a></li>
+	<li><a href="/newrating/<%= @resume.id %>/1" title="1 star out of 5" class="one-star">1</a></li>
 
-	<li><a href="#" title="4 stars out of 5" class="four-stars">4</a></li>
+	<li><a href="/newrating/<%= @resume.id %>/2" title="2 stars out of 5" class="two-stars">2</a></li>
 
-	<li><a href="#" title="5 stars out of 5" class="five-stars">5</a></li>
+	<li><a href="/newrating/<%= @resume.id %>/3" title="3 stars out of 5" class="three-stars">3</a></li>
+
+	<li><a href="/newrating/<%= @resume.id %>/4" title="4 stars out of 5" class="four-stars">4</a></li>
+
+	<li><a href="/newrating/<%= @resume.id %>/5" title="5 stars out of 5" class="five-stars">5</a></li>
 
 </ul>
+<% end %>
+
+
 <br /><br />
 
 
@@ -58,7 +87,30 @@ Resume Name: <%= @resume.name %>
 		<h3>Ratings</h3>
 		<% @rating.each do |rating| %>
 			<%= rating.user.name %> : 
-			<%= rating.rating_score %> <br />
+			
+			
+	<ul class="star-rating">
+	
+	<% if rating.rating_score == 1 %>
+	<li class="current-rating" style="width:20%;">Your Rating was 1/5 Stars.</li>
+	<% elsif rating.rating_score == 2 %>
+	<li class="current-rating" style="width:40%;">Your Rating was 2/5 Stars.</li>
+	<% elsif rating.rating_score == 3 %>
+	<li class="current-rating" style="width:60%;">Your Rating was 3/5 Stars.</li>
+	<% elsif rating.rating_score == 4 %>
+	<li class="current-rating" style="width:80%;">Your Rating was 4/5 Stars.</li>
+	<% elsif rating.rating_score == 5 %>
+	<li class="current-rating" style="width:100%;">Your Rating was 5/5 Stars.</li>
+	<% else %>
+	<li class="current-rating" style="width:0%;">Your Rating was 0/5 Stars.</li>
+	<% end %>
+
+	<li> <b></b> </li>
+	<li><b></b></li>
+	<li><b></b></li>
+	<li><b></b></li>
+	<li><b></b></li>
+	</ul>
 			<% if current_user.id == rating.userid %> 
 				<%= link_to 'Delete', rating, :confirm => 'Are you sure?', :method => :delete %>
 			<% end %>

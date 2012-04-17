@@ -27,5 +27,39 @@ class CommentsController < ApplicationController
 	@title = "Show Comment"
   end
 
+
+
+  
+  
+  def edit
+	@title = "Edit Comment"
+
+    @comment = Comment.find(params[:id])
+  end
+  
+  def update
+	@title = "Edit Comment"
+
+    @comment = Comment.find(params[:id])
+
+    respond_to do |format|
+      if @comment.update_attributes(params[:comment])
+        format.html { redirect_to("/viewresume/#{@comment.resumeid}", :notice => 'Comment was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+
+	redirect_to "/viewresume/#{@comment.resumeid}"
+
+  end
+
   
 end

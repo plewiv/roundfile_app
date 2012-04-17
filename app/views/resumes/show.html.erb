@@ -4,7 +4,7 @@ Author: <%= link_to "#{@resume.user.name}", user_path(@resume.userid) %> |
 <%= link_to "Comment", "/newcomment/#{@resume.id}" %> | 
 <%= link_to "Rate Resume", "/newrating/#{@resume.id}" %> | 
 <%= link_to 'Edit', edit_resume_path(@resume) %> | 
-<%= link_to 'Destroy', @resume, :confirm => 'Are you sure?', :method => :delete %><br />
+<%= link_to 'Delete', @resume, :confirm => 'Are you sure?', :method => :delete %><br />
 Resume Name: <%= @resume.name %>
 <br /><br />
 
@@ -24,7 +24,11 @@ Resume Name: <%= @resume.name %>
 		<h3>Comments</h3>
 		<% @comment.each do |comment| %>
 			<%= comment.comment %><br />
-			Author: <%= link_to "#{comment.user.name}", user_path(comment.user.id) %>
+			Author: <%= link_to "#{comment.user.name}", user_path(comment.user.id) %> <br />
+			<% if current_user.id == comment.userid %>
+				<%= link_to 'Edit', edit_comment_path(comment) %> | 
+				<%= link_to 'Delete', comment, :confirm => 'Are you sure?', :method => :delete %>
+			<% end %>
 			<br /><br />
 		<% end %>
 		<% end %>
@@ -36,6 +40,10 @@ Resume Name: <%= @resume.name %>
 		<% @rating.each do |rating| %>
 			<%= rating.user.name %> : 
 			<%= rating.rating_score %> <br />
+			<% if current_user.id == rating.userid %> 
+				<%= link_to 'Delete', rating, :confirm => 'Are you sure?', :method => :delete %>
+			<% end %>
+			<br /><br />
 		<% end %>
 		<% end %>
 	</div>

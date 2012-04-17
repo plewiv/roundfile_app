@@ -1,3 +1,4 @@
+<%= javascript_include_tag :defaults %>
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
@@ -12,3 +13,24 @@
     </td>
   </tr>
 </table>
+<br />
+
+<h3><%= @title2 %></h3>
+<% if !@resume.blank? %>
+<table>
+<tr><th> </th> <th> </th></tr>
+
+<% @resume.each do |resume| %>
+  <tr>
+    <td><%= link_to "#{resume.name}", "/viewresume/#{resume.id}" %></td>
+	<td><% if current_user.id == resume.userid %><%= link_to 'View', resume_url(resume) %> | <%= link_to 'Edit', edit_resume_path(resume) %> | <%= link_to 'Destroy', resume, :confirm => 'Are you sure?', :method => :delete %></td>
+ </tr>
+<% end %>
+	
+  
+<% end %>
+</table>
+
+<% else %>
+	This user has not created any Resumes.
+<% end %>

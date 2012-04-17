@@ -24,9 +24,10 @@
 <% @resume.each do |resume| %>
   <tr>
     <td><%= link_to "#{resume.name}", "/viewresume/#{resume.id}" %></td>
-	<td><% if current_user.id == resume.userid %><%= link_to 'View', resume_url(resume) %> | <%= link_to 'Edit', edit_resume_path(resume) %> | <%= link_to 'Destroy', resume, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><% if current_user.id == resume.userid %><%= link_to 'View', resume_url(resume) %> | <%= link_to 'Edit', edit_resume_path(resume) %> | <%= link_to 'Destroy', resume, :confirm => 'Are you sure?', :method => :delete %>
+	<% end %></td>
  </tr>
-<% end %>
+
 	
   
 <% end %>

@@ -23,7 +23,7 @@ end
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'ajaxful_rating', :git => 'git://github.com/edgarjs/ajaxful-rating.git', :branch => "rails3"
 
 # Use unicorn as the web server
 # gem 'unicorn'

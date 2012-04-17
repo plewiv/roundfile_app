@@ -25,5 +25,19 @@ class RatingsController < ApplicationController
 	@rating = Rating.find(params[:id])
 	@title = "Show Rating"
   end
+  
+  
+  
+ 
+  
+  def destroy
+    @rating = Rating.find(params[:id])
+    @rating.destroy
+	
+	redirect_to "/viewresume/#{@rating.resumeid}"
+
+  end
+
+
 
 end

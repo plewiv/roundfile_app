@@ -1,7 +1,10 @@
+<%= javascript_include_tag :defaults %>
 <h1><%= @title %></h1>
 Author: <%= link_to "#{@resume.user.name}", user_path(@resume.userid) %> | 
 <%= link_to "Comment", "/newcomment/#{@resume.id}" %> | 
-<%= link_to "Rate Resume", "/newrating/#{@resume.id}" %> <br />
+<%= link_to "Rate Resume", "/newrating/#{@resume.id}" %> | 
+<%= link_to 'Edit', edit_resume_path(@resume) %> | 
+<%= link_to 'Destroy', @resume, :confirm => 'Are you sure?', :method => :delete %><br />
 Resume Name: <%= @resume.name %>
 <br /><br />
 

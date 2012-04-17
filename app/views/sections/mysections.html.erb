@@ -2,25 +2,29 @@
 
 <h1><%= @title %></h1>
 
-
+<% if !@section.blank? %>
 <table>
   <tr>
     <th>Type</th>
     <th>Title</th>
-	<th></th>
+	<th>Actions</th>
   </tr>
+
 
 <% @section.each do |section| %>
   <tr>
     <td><%= section.typesection %></td>
     <td><%= section.title %></td>
-	<% if current_user.id == section.userid %>
-		<td><%= link_to 'View', section_url(section) %> | <%= link_to 'Edit', edit_section_path(section) %> | 
-		<%= link_to 'Destroy', section, :confirm => 'Are you sure?', :method => :delete %></td>
-	<% end %>
+	<td><% if current_user.id == section.userid %>
+		<%= link_to 'View', section_url(section) %> | <%= link_to 'Edit', edit_section_path(section) %> | 
+		<%= link_to 'Destroy', section, :confirm => 'Are you sure?', :method => :delete %>
+	<% end %></td>
  
   </tr>
 
 <% end %>
 </table>
+<% else %>
+	You have not created any sections.
+<% end %>
 

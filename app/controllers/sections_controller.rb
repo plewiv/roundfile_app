@@ -63,7 +63,7 @@ class SectionsController < ApplicationController
 
     respond_to do |format|
       if @section.update_attributes(params[:section])
-        format.html { redirect_to(@section, :notice => 'User was successfully updated.') }
+        format.html { redirect_to(@section, :notice => 'Section was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -73,8 +73,8 @@ class SectionsController < ApplicationController
   end
   
   def destroy
-    @section = Section.destroy(params[:id])
-    #@section.destroy
+    @section = Section.find(params[:id])
+    @section.destroy
 	
 	#@resumesection = Resumesection.destroy_all_by_sectionid(params[:id])
 	

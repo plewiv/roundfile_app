@@ -3,6 +3,7 @@ class ResumesController < ApplicationController
   def show
 	@resume = Resume.find(params[:id])
 	
+	
 	@resumesection = Resumesection.find_all_by_resumeid(params[:id], :order => "orderNum")
 	@comment = Comment.find_all_by_resumeid(params[:id], :order => "created_at")
 	@rating = Rating.find_all_by_resumeid(params[:id], :order => "created_at")
@@ -40,8 +41,10 @@ class ResumesController < ApplicationController
   end
 	
   def myresumes
-	@title = "My Resumes"
+	@title2 = "My Resumes"
 	@resume = Resume.find_all_by_userid(current_user.id)
+	@user = User.find(current_user.id)
+	@title = @user.name
 	
 	
 	#code from DEMO APP
@@ -63,6 +66,37 @@ class ResumesController < ApplicationController
 	end
 	
   end
+  
+  def edit
+	@title = "Edit Resume"
+    @resume = Resume.find(params[:id])
+  end
+  
+  def update
+	@title = "Edit Resume"
+
+    @resume = Resume.find(params[:id])
+
+    respond_to do |format|
+      if @resume.update_attributes(params[:resume])
+        format.html { redirect_to("/newresumelist/#{@resume.id}", :notice => 'Resume Title was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @resume.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
+  def destroy
+    @resume = Resume.find(params[:id])
+    @resume.destroy
+	
+	
+	redirect_to :action => 'myresumes'
+
+  end
+
 
   
 end

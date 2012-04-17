@@ -1,4 +1,5 @@
 <%= javascript_include_tag :defaults %>
+<%= stylesheet_link_tag 'star_rating', :media => 'screen' %>
 <h1><%= @title %></h1>
 Author: <%= link_to "#{@resume.user.name}", user_path(@resume.userid) %> | 
 <%= link_to "Comment", "/newcomment/#{@resume.id}" %> | 
@@ -7,6 +8,24 @@ Author: <%= link_to "#{@resume.user.name}", user_path(@resume.userid) %> |
 <%= link_to 'Delete', @resume, :confirm => 'Are you sure?', :method => :delete %><br />
 Resume Name: <%= @resume.name %>
 <br /><br />
+
+<ul class="star-rating">
+
+	<li class="current-rating" style="width:60%;">Currently 3/5 Stars.</li>
+
+	<li><% link_to "newrating/#{@resume.id}/1" %> title="1 star out of 5" class="one-star">1</a></li>
+
+	<li><a href="#" title="2 stars out of 5" class="two-stars">2</a></li>
+
+	<li><a href="#" title="3 stars out of 5" class="three-stars">3</a></li>
+
+	<li><a href="#" title="4 stars out of 5" class="four-stars">4</a></li>
+
+	<li><a href="#" title="5 stars out of 5" class="five-stars">5</a></li>
+
+</ul>
+<br /><br />
+
 
 <% @resumesection.each do |resumesection| %>
 

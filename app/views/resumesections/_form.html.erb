@@ -1,0 +1,30 @@
+<%= form_for(@resumesection) do |f| %>
+  <% if @resumesection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@resumesection.errors.count, "error") %> prohibited this section from being saved:</h2>
+
+      <ul>
+      <% @resumesection.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Order" %><br />
+    <%= f.text_field :orderNum %>
+  </div>
+  
+  <div class="field">
+		<%= f.hidden_field :resumeid %>
+  </div>
+  <div class="field">
+		<%= f.hidden_field :sectionid %>
+  </div>
+  
+  
+  <div class="actions">
+    <%= f.submit "Update Order" %>
+  </div>
+<% end %>

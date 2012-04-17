@@ -89,6 +89,32 @@ class ResumesectionsController < ApplicationController
 	end
   end
   
+  
+  
+  
+  def edit
+	@title = "Edit Order of Section"
+    @resumesection = Resumesection.find(params[:id])
+  end
+  
+  def update
+	@title = "Edit Order of Section"
+
+    @resumesection = Resumesection.find(params[:id])
+
+    respond_to do |format|
+      if @resumesection.update_attributes(params[:resumesection])
+        format.html { redirect_to("/newresumelist/#{@resumesection.resumeid}", :notice => 'Order was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @resumesection.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
+  
+  
   def destroy
 
     @resumesection = Resumesection.find(params[:id])

@@ -27,7 +27,7 @@ RoundfileApp::Application.routes.draw do
 	match '/newcomment/:id',  :to => 'comments#new'
 	match '/newcomment/:id/:message', :to => 'comments#new'
 	match '/newrating/:id',  :to => 'ratings#new'
-	match '/newrating/:id/:message', :to => 'ratings#new'
+	match '/newrating/:id/:score', :to => 'ratings#new'
 	match '/userresumes', :to => 'resumes#userres'
 	match '/userresumes/:id/', :to => 'resumes#userres'
 	

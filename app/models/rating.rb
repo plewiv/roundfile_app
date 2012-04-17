@@ -7,6 +7,7 @@ class Rating < ActiveRecord::Base
 	validates :resumeid, :presence => true
 	validates :userid, :presence => true
 	validates :rating_score, :presence => true
+	validates_inclusion_of :rating_score, :in => [1,2,3,4,5] 
 	#validates :rate_time, :presence => true
 end
 

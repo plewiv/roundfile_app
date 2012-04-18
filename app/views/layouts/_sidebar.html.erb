@@ -1,13 +1,10 @@
 <div id="sidebar-wrapper">
 	<div id="sidebar">
-		<ul>
-		<li><%= link_to "Home", root_path %></li>
-		
+		<ul>		
 		<% if signed_in? %>
 
 		<li><%= link_to "My Resumes", "/myresumes" %></li>
-		<li><%= link_to "New Resume", "/newresume" %></li>
-		
+		<li><%= link_to "New Resume", "/newresume" %></li>		
 		<li><%= link_to "New Section", "/newsection" %></li>
 		<li><%= link_to "My Sections", "/mysections" %></li>
 		<li><%= link_to "User Resumes", "/userresumes"%></li>

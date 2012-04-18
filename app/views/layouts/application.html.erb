@@ -9,13 +9,17 @@
   <body>
       <%= render 'layouts/header' %>
       <div id="wrapper">
+	  <div id= "sidebar-wrapper">
+		<%= render 'layouts/sidebar' %>
+	  </div>
 		<div id="page">
 			<div id="page-bgtop">
 				<%= yield %>
 				</br>
 				</br>
 			</div>
-		</div>	
+		</div>
+			
 	  </div>
   </body>
   

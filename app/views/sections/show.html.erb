@@ -1,10 +1,13 @@
 <%= javascript_include_tag :defaults %>
 <h1><%= @title %></h1>
-
-Type: <%= @section.typesection %><br />
-User ID: <%= @section.userid %> <br />
-Title: <%= @section.title %><br />
-
+<br />
+<table>
+<tr><th>Type</th><th>Creator</th><th>Title</th></tr>
+<tr>
+<td><%= @section.typesection %></td>
+<td> <%= link_to "#{@section.user.name}", user_path(@section.userid) %></td>
+<td> <%= @section.title %></td></tr>
+</table>
 
 <% if current_user.id == @section.userid %>
 
@@ -12,6 +15,6 @@ Title: <%= @section.title %><br />
  
 <% end %><br /><br />
 
-Content: <br />
+<b>Content:</b> <br />
 <%= raw @section.content %>
 

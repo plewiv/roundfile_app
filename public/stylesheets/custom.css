@@ -62,6 +62,7 @@ img.aligncenter {
 }
 
 #wrapper {
+	width: 1000px;
 	margin: 0 auto;
 	padding: 0;
 }
@@ -146,13 +147,13 @@ img.aligncenter {
 }
 
 #menu li {
-	float: left;
+	float: right;
 	margin-right: 1px;
 }
 
 #menu a {
 	display: block;
-	float: left;
+	float: right;
 	height: 60px;
 	margin: 0px;
 	padding: 0px 20px 0px 30px;
@@ -178,10 +179,89 @@ img.aligncenter {
 	color: #FFFFFF;
 }
 
+
+
+
+
+
+/* Side-bar */
+
+#sidebar-wrapper {
+	float:left;
+	overflow: hidden;
+	height: auto;
+	margin: 0px auto;
+	background: #212121;
+	width: 150px;
+}
+
+#sidebar {
+	width: 150px;
+	margin: 0px auto;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0px 0px 0px 0px;
+	/*list-style: none;*/
+	line-height: normal;
+	width: 150px;
+}
+
+#sidebar li {
+	/*float: left;*/
+	width: 150px;
+	list-style: none;
+	/*display: inline;
+	margin-right: 1px;*/
+}
+
+#sidebar a {
+	display: block;
+	float: left;
+	height: 60px;
+	margin: 0px;
+	padding: 0px 20px 0px 30px;
+	line-height: 60px;
+	letter-spacing: -1px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: 'Arvo', serif;
+	font-size: 14px;
+	font-weight: normal;
+	color: #B5B5B5;
+	border: none;
+	width: 150px;
+}
+
+#sidebar .current_page_item a {
+	background: #FFA800;
+	color: #FFFFFF;
+}
+
+#sidebar a:hover {
+	background: #6E7A8A;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Page */
 
 #page {
-	width: 1000px;
+	width: 850px; /* *****************************************************************  */
+	float: right;
 	margin: 0 auto;
 	padding: 0;
 	background-color: #FFFFFF;
@@ -464,4 +544,22 @@ td.sidebar {
   vertical-align: top;
   background:  #212121;
   color: #fff;
+}
+
+#resume p{
+background:  #f8f8f8;
+}
+
+#ratecomment{
+	width: 850px;
+}
+
+#rate{
+	width: 425px;
+	float: left;
+}
+
+#comment{
+	width: 425px;
+	float: right;
 }

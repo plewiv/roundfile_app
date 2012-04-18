@@ -1,14 +1,15 @@
 <%= javascript_include_tag :defaults %>
 <%= stylesheet_link_tag 'star_rating', :media => 'screen' %>
 <h1><%= @title %></h1>
-Author: <%= link_to "#{@resume.user.name}", user_path(@resume.userid) %> | 
-<%= link_to "Comment", "/newcomment/#{@resume.id}" %> |  
-<%= link_to 'Edit', edit_resume_path(@resume) %> | 
-<%= link_to 'Delete', @resume, :confirm => 'Are you sure?', :method => :delete %><br />
-Resume Name: <%= @resume.name %>
 <br />
+<b>Resume Name:</b> <%= @resume.name %><br />
+Author: <%= link_to "#{@resume.user.name}", user_path(@resume.userid) %><br />
+<%= link_to 'Edit Resume', edit_resume_path(@resume) %> | 
+<%= link_to 'Delete Resume', @resume, :confirm => 'Are you sure?', :method => :delete %><br />
 
-
+<br />
+<br />
+<b><%= link_to "Make a Comment", "/newcomment/#{@resume.id}" %></b><br />
 <% if !@usercurrentrating.blank? %>
 Your Rating for this resume: 
 	<ul class="star-rating">
@@ -53,38 +54,33 @@ Rate Resume:
 <% end %>
 
 
+<br />
+<div id= "resume">
+<p>
 <br /><br />
-
-
 <% @resumesection.each do |resumesection| %>
 
-	<%= resumesection.orderNum %>
 	<%= raw resumesection.section.content %><br />
 <% end %>
-	
+
+<br />
+<p>
+</div>	
+
+
+
 <br />
 <br />
 <bf />
 
-<div>
-	<div>
-		<% if !@comment.blank? %>
-		<h3>Comments</h3>
-		<% @comment.each do |comment| %>
-			<%= comment.comment %><br />
-			Author: <%= link_to "#{comment.user.name}", user_path(comment.user.id) %> <br />
-			<% if current_user.id == comment.userid %>
-				<%= link_to 'Edit', edit_comment_path(comment) %> | 
-				<%= link_to 'Delete', comment, :confirm => 'Are you sure?', :method => :delete %>
-			<% end %>
-			<br /><br />
-		<% end %>
-		<% end %>
-	</div>
+<div id= "ratecomment">
+	
 		
-	<div>
+	<div id = "rate">
+	<h3>Ratings</h3>
 		<% if !@rating.blank? %>
-		<h3>Ratings</h3>
+		
+		<br />
 		<% @rating.each do |rating| %>
 			<%= rating.user.name %> : 
 			
@@ -116,8 +112,37 @@ Rate Resume:
 			<% end %>
 			<br /><br />
 		<% end %>
+		<% else %>
+		
+		There are no ratings for this resume yet.
+		<br /><br /><br /><br />
 		<% end %>
 	</div>
+	
+	
+	<div id= "comment">
+	<h3>Comments</h3>
+		<% if !@comment.blank? %>
+		
+		<br />
+		<% @comment.each do |comment| %>
+			<%= comment.comment %><br />
+			<b>Author:</b> <%= link_to "#{comment.user.name}", user_path(comment.user.id) %> <br />
+			<% if current_user.id == comment.userid %>
+				<%= link_to 'Edit', edit_comment_path(comment) %> | 
+				<%= link_to 'Delete', comment, :confirm => 'Are you sure?', :method => :delete %>
+			<% end %>
+			<br /><br />
+		<% end %>
+		
+		<% else %>
+		
+		There are no comments for this Resume yet.
+		<br /><br /><br /><br />
+		<% end %>
+	</div>
+	
+	
 </div>
 
 

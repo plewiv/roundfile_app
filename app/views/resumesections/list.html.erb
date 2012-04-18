@@ -1,7 +1,7 @@
 <%= javascript_include_tag :defaults %>
 <h1><%= @title %></h1>
-
-<%= link_to "Add Another Section", "/newresume/#{params[:id]}" %><br />
+<br />
+<b><%= link_to "Add Another Section", "/newresume/#{params[:id]}" %></b><br /><br />
 
 <table>
   <tr>
@@ -25,5 +25,5 @@
 <% end %>
 </table>
 <br />
-<%= link_to "Finish Creating Resume", "/viewresume/#{params[:id]}" %>
+<%= button_to "Finish Creating Resume", "/viewresume/#{params[:id]}" %>
 

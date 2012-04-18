@@ -1,6 +1,9 @@
 <h1>Editing Resume Title</h1>
-<%= link_to 'Edit Resume Sections List', "/newresumelist/#{@resume.id}" %>
+<br />
+
 
 <%= render 'form' %>
-
-<%= link_to 'Back to View Resume', @resume %>
+<br />
+OR
+<%= link_to 'Edit Resume Sections List', "/newresumelist/#{@resume.id}" %><br /><br />
+<small><%= link_to 'Back to View Resume', @resume %></small>

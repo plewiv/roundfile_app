@@ -1,10 +1,10 @@
 <h1><%= @title %></h1>
-
+<br />
 
 <%= form_for(@resume) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
     <div class="field">
-		<%= f.label "Name your Resume" %><br />
+		<%= f.label "Name" %><br />
 		<%= f.text_field :name %>
     </div>
 	<div class="field">

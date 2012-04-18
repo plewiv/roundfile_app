@@ -15,7 +15,7 @@ class ResumesController < ApplicationController
   end
   
   def new
-    @title = "New Resume"
+    @title = "Name Your Resume"
 	@resume = Resume.new
   end
   

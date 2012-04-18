@@ -1,7 +1,7 @@
 class Section < ActiveRecord::Base
 	attr_accessible :typesection, :content, :userid, :title
 	
-	belongs_to :user
+	belongs_to :user, :class_name => 'User', :foreign_key => 'userid'
 	has_many :resumesection, :class_name => 'Resumesection', :dependent => :destroy, :foreign_key => 'sectionid'
 		#belongs_to :resumesection
 

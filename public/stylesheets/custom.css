@@ -548,10 +548,12 @@ td.sidebar {
 
 #resume p{
 background:  #f8f8f8;
+padding: 20px 20px 20px 20px;
 }
 
 #ratecomment{
 	width: 850px;
+	
 }
 
 #rate{
@@ -562,4 +564,21 @@ background:  #f8f8f8;
 #comment{
 	width: 425px;
 	float: right;
+}
+
+#userres-wrapper{
+	width: 850px;
+}
+
+#users{
+	width: 200px;
+	float: left;
+	background:  #f8f8f8;
+	padding: 20px 20px 20px 20px;
+}
+
+#userres{
+	width: 550px;
+	float: right;
+	padding: 20px 20px 20px 20px;
 }

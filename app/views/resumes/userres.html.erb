@@ -1,22 +1,33 @@
 <h1><%= @title %></h1>
-<div>
+<br />
+<div id = "userres-wrapper">
+<div id= "users">
+<center><h3>Users</h3></center><br />
 	<% @user.each do |user| %>
 		<%= link_to "#{user.name}", "/userresumes/#{user.id}" %><br />
 	<% end %>
+	
 </div>
 
-<br />
-<div>
+<div id="userres">
 	<% if params[:id].blank? %>
-		BLANK
+		<br />
+		Pick a User from the list on the left.
 	<% end %>
 	
 	<% if !params[:id].blank? %>
-		<h3><%= @title2 %></h3>
+		<h3><%= @title2 %></h3><br />
 		<% @resume.each do |resume| %>
 		<%= link_to "#{resume.name}", "/viewresume/#{resume.id}" %><br />
+		<% end %>
+		<% end %>
+	
+	<% if @resume.blank? && !params[:id].blank? %>
+	
+	This user does not have any resumes yet.
 	<% end %>
-	<% end %>
+</div>
+<br /><br />
 </div>
 <br />
 

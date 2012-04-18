@@ -1,6 +1,6 @@
 RoundfileApp::Application.routes.draw do
 
-
+root :to => 'pages#home'
 
   resources :sections
   resources :users
@@ -9,10 +9,8 @@ RoundfileApp::Application.routes.draw do
   resources :comments
   resources :ratings
   resources :sessions, :only => [:new, :create, :destroy]
-  
-  #get "sections/new"
-  #get "pages/home"
-	root :to => 'pages#home'
+
+	
 	match '/newsection',  :to => 'sections#new'
 	match '/mysections',  :to => 'sections#mysections'
 	match '/newresume',  :to => 'resumes#new'

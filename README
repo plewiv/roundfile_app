@@ -1,1 +1,70 @@
 Link to heroku: [http://severe-lightning-9339.heroku.com]
+
+Team 2 - “Rails on Rails on Rails”
+
+Members:
+Angel Castrejon
+Briana Fulfer
+Peter Lew
+Muedeh Pishavaei
+Moohanad Rasheed
+
+Credit:
+Star Rating CSS functionality from:  http://www.komodomedia.com/blog/2007/01/css-star-rating-redux/
+User and Sessions functionality taken from sample_app.
+
+
+-----------------------------------------------------------------------------------------------
+Resume Test Section Data
+
+///////////////////CONTENT
+
+<TITLE>Hunter S. Jobseeker</TITLE> 
+<BODY BGCOLOR="#FFFFFF"> 
+<center><H1>John Doe</H1> 
+12013 Future Drive<br />
+New York, NY 10019<br />
+Phone (305) 555-1213<br />
+Email: jobseeker@internet.com<br />
+</center>
+
+
+//////////////////OBJECTIVE
+
+<h2>Objective</h2> 
+Marketing, public relations or sales position with a medical equipment company.
+
+
+
+/////////////////////WORK EXPERIENCE
+
+<H2>Sales Experience</H2> 
+<H3>March 1993 to Present</H3> 
+Commissioned Salesperson -- Fine Jewelry<BR> 
+Macy's Department Store, New York, New York<UL> 
+<LI>Sell men's and women's jewelry, develop positive customer relations, provide sales promotion support for upper management, and maintain a product inventory worth up to $3 million.</LI> 
+<LI>Achieved 100 percent or more of sales quota since employed.</LI></UL> 
+<H3>May 1990 to November 1992</H3> 
+Commissioned Salesperson -- Men's Suits<BR> 
+Barney's, New York, New York<UL><LI> 
+Sold men's suits, established customer relations, handled staff scheduling duties, and ordered merchandise. kept track of market trends and effectively reformatted the store's accounting system as it pertained to this department.</LI> 
+<LI>Ranked first, second, or third in every sales program during period of employment.</LI></UL>
+<H2>Additional Experience</H2> 
+<H3>June 1987 to November 1989</H3> 
+<UL><LI>Part-time and summer employment experience: Zoo Worker, Bronx Zoo, New York, summer 1987.</LI> 
+<LI>Word Processor and Medical Records Assistant, Mercy Hospital, New York, September 1987 - November 1989.</LI></UL> 
+
+
+////////////////////EDUCATION
+
+
+<H2>Education</H2> 
+Bachelor of Arts in Biology -- December 1989 
+<BR>Columbia University<BR> 
+GPA: 3.5/4.0
+
+
+////////////////////////OTHER
+
+<H2>Activities</H2> 
+Vice President 1989, Social Chair 1987, Pi Beta Phi Sorority

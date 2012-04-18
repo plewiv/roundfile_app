@@ -38,14 +38,6 @@ ActiveRecord::Schema.define(:version => 20120418030624) do
     t.datetime "updated_at"
   end
 
-  create_table "resumesection", :force => true do |t|
-    t.integer  "resumeid"
-    t.integer  "sectionid"
-    t.integer  "orderNum"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "resumesections", :force => true do |t|
     t.integer  "resumeid"
     t.integer  "sectionid"

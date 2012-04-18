@@ -1,20 +1,31 @@
 <header>
-  <nav class="round">
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <% if signed_in? %>
-      <li><%= link_to "Profile", current_user %></li>
-      
-	  <li><%= link_to "Users", users_path %></li>
-      <li><%= link_to "New Section", "/newsection" %></li>
-	  <li><%= link_to "New Resume", "/newresume" %></li>
-	  <li><%= link_to "My Sections", "/mysections" %></li>
-	  <li><%= link_to "My Resumes", "/myresumes" %></li>
-      <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-      <li><%= link_to "Sign Out", signout_path, :method => :delete %></li>
-      <% else %>
-      <li><%= link_to "Sign In", signin_path %></li>
-      <% end %>
-    </ul>
-  </nav>
+  <div id="wrapper">
+		<div id="header-wrapper">
+			<div id="header">
+					<div id="logo">
+					<h1><%= link_to "Round File", root_path %></h1>
+					<p>Catch Phrase goes Here!</p>
+					</div>
+			</div>
+		</div>
+	
+  <div id="menu-wrapper">
+	<div id="menu">
+		<ul>
+		<li><%= link_to "Home", root_path %></li>
+		<li><%= link_to "User Resumes", "#"%></li>
+		<% if signed_in? %>
+		<li><%= link_to "Profile", current_user %></li>
+		<li><%= link_to "New Section", "/newsection" %></li>
+		<li><%= link_to "New Resume", "/newresume" %></li>
+		<li><%= link_to "My Sections", "/mysections" %></li>
+		<li><%= link_to "My Resumes", "/myresumes" %></li>
+		<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+		<% else %>
+		<li><%= link_to "Sign in", signin_path %></li>
+		<% end %>
+		</ul>
+		</div>
+		
+  </div>
 </header>

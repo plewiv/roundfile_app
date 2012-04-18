@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 		else
 			sign_in_not_remembered user
 		end
-		redirect_to "/myresumes"
+		redirect_back_or "/myresumes"
     end
   end
 

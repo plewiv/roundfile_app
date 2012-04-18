@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120415215305) do
+ActiveRecord::Schema.define(:version => 20120418030624) do
 
   create_table "comments", :force => true do |t|
     t.integer  "resumeid"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20120415215305) do
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",              :default => false
   end
 
 end

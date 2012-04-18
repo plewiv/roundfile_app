@@ -31,7 +31,7 @@ before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
   def create
     @user = User.new(params[:user])
     if @user.save
-      sign_in @user
+      sign_in_not_remembered @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
